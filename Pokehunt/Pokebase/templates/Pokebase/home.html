@@ -1,0 +1,6 @@
+<div>Hello, {{ trainer.trainer_name }}.</div>
+<div>Ready to catch some Pokemons?</div>
+
+<div>Your info: <a href='{% url "Pokebase:trainerinfo" trainer.id %}'>{{ trainer.trainer_name }}</a></div>
+
+<a href='{% url "Pokebase:logout" %}?next=/'>Logout</a>
