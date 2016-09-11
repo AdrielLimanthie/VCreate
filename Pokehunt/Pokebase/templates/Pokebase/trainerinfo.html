@@ -1,11 +1,11 @@
 <div>Trainer name: {{ user.username }}</div>
-<div>Money: {{ trainer.trainer_money }}</div>
+<div>Money: {{ trainer.money }}</div>
 <br>
 <div>Pokemons:</div>
 <div>
     <ul>
         {% for pokemon in trainer.pokemon_set.all %}
-            <li><a href='{% url "Pokebase:pokemoninfo" pokemon.id %}'>{{ pokemon.pokemon_name }}</a> &nbsp Lv. {{ pokemon.pokemon_level }}</li>
+            <li><a href='{% url "Pokebase:pokemoninfo" pokemon.id %}'>{{ pokemon.nickname }}</a> &nbsp Lv. {{ pokemon.level }}</li>
         {% endfor %}
     </ul>
 </div>

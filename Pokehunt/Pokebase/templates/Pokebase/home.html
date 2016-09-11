@@ -3,4 +3,4 @@
 
 <div>Your info: <a href='{% url "Pokebase:trainerinfo" trainer.id %}'>{{ user.username }}</a></div>
 
-<a href='{% url "Pokebase:logout" %}?next=/'>Logout</a>
+<a href='{% url "Pokebase:logout" %}?next=/'>Logout</a> <!-- ?next=/ is used to redirect logged out user to index page -->

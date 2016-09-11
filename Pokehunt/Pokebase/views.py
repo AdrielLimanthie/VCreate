@@ -21,7 +21,7 @@ def register(request):
             newuser.set_password(newuser.password)
             newuser.save()
 
-            trainer = Trainer(user=newuser, trainer_money=0)
+            trainer = Trainer(user=newuser, money=0)
             trainer.save()
 
             registered = True
