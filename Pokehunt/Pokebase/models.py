@@ -17,6 +17,19 @@ class Trainer(models.Model):
     def __str__(self):
         return self.user.username
 
+class Item(models.Model):
+    name = models.CharField(max_length=25)
+    group = models.PositiveSmallIntegerField(default=1)  # 1: Pokeballs
+    def __str__(self):
+        return self.name
+
+class Bag(models.Model):
+    owner = models.ForeignKey(Trainer, on_delete=models.CASCADE)
+    category = models.ForeignKey(Item, on_delete=models.PROTECT)
+    amount = models.PositiveIntegerField(default=1)
+    def __str__(self):
+        return self.owner.user.username + "'s " + self.category.name
+
 class Pokedex(models.Model):
     name = models.CharField(max_length=25)
     dexnumber = models.PositiveSmallIntegerField(default=0)
@@ -35,7 +48,7 @@ class Pokemon(models.Model):
     level = models.PositiveSmallIntegerField(default=1)
     gender = models.PositiveSmallIntegerField(default=1)    # 1: Male 2:Female 0:NoGender
     exp = models.PositiveIntegerField(default=0)
-    # held_item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True)
+    held_item = models.ForeignKey(Bag, on_delete=models.SET_NULL, null=True, blank=True)
     power = models.PositiveIntegerField(default=1)
     iv = models.PositiveSmallIntegerField(default=0)
     # nature = 
